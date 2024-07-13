@@ -29,12 +29,14 @@ git submodule update --init
 cd flrl_v1
 flutter run
 ```
-I haven't had any issues running this on multiple platforms (Windows and Linux), but if you have any problems please open up a github issue and I can take a look.
+Unfortuately, dart-raylib only supports windows and linux, if you have any problems please open up a github issue and I can take a look.
 
 ## Credits
 Jochum van der Ploeg - [dart-raylib bindings](https://gitlab.com/wolfenrain/dart-raylib)
 
 Levi Lesches - [typed_isolate](https://github.com/Levi-Lesches/typed_isolate)
+
+[Jacob Bang](https://github.com/julemand101) - helped out tremendously in the dart discord
 
 #### Notes
 
