@@ -44,6 +44,9 @@ class RaylibIsolate extends IsolateChild<IsolatePayload, RaylibCommand>{
     final cubePosition = Vector3.zero();
 
     setCameraMode(camera, CameraMode.orbital);
+
+    setWindowState(ConfigFlags.windowResizable);
+
     setTargetFPS(60);
 
     while (!windowShouldClose()){  
