@@ -54,7 +54,6 @@ class RaylibController extends IsolateParent<RaylibCommand, IsolatePayload>{
     }
   }  
 
-  /// This should update the color of the cube, but only does so on the creation of the first raylib context
   void updateColor(RaylibIsolate rlIsolate){
     _counter++;
     var list = [Color.beige, Color.blue, Color.brown];  
@@ -64,7 +63,6 @@ class RaylibController extends IsolateParent<RaylibCommand, IsolatePayload>{
 
   void createRaylibContext() async{
     if (rlCanCreateContext){
-      rlIsolate = RaylibIsolate(id: "rlIsolate");
       await spawn(rlIsolate); 
       rlCanCreateContext = false;
     } else {
