@@ -37,6 +37,7 @@ class RaylibController extends IsolateParent<RaylibCommand, IsolatePayload>{
   int _counter = 0;
   Color _color = Color.red;
   bool rlCanCreateContext = true;
+  bool rlContextIsOpen = false;
 
   RaylibIsolate rlIsolate = RaylibIsolate(id: "rlIsolate");
 
@@ -48,6 +49,7 @@ class RaylibController extends IsolateParent<RaylibCommand, IsolatePayload>{
   @override
   void onData(IsolatePayload data, Object id) async{
     // print("Data received from isolate: $data");
+    rlContextIsOpen =  data.rlContextIsOpen; 
     if (data.rlClearIsolates == true){
       super.cleanup();
       rlCanCreateContext = true;
@@ -55,10 +57,15 @@ class RaylibController extends IsolateParent<RaylibCommand, IsolatePayload>{
   }  
 
   void updateColor(RaylibIsolate rlIsolate){
-    _counter++;
-    var list = [Color.beige, Color.blue, Color.brown];  
-    _color = list[_counter % list.length]; 
-    send(data: RaylibCommand(color: _color), id: rlIsolate.id);
+    if (rlContextIsOpen){
+      _counter++;
+      var list = [Color.beige, Color.blue, Color.brown];  
+      _color = list[_counter % list.length]; 
+      send(data: RaylibCommand(color: _color), id: rlIsolate.id);
+    } else {
+      // send some feedback to the user
+      print("Window is not open");
+    }
   }
 
   void createRaylibContext() async{
