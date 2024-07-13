@@ -1,6 +1,3 @@
-[submodule "include/dart-raylib"]
-	path = include/dart-raylib
-	url = https://github.com/payl-ampa/dart-raylib
 [submodule "include/typed_isolate"]
 	path = include/typed_isolate
 	url = https://github.com/payl-ampa/typed_isolate
