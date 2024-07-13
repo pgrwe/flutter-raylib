@@ -20,8 +20,8 @@ In practice/during the semester - we will likely instead include an executable t
 ```bash
 git clone https://github.com/payl-ampa/flutter-raylib
 cd flutter-raylib
-git submodule init
-git submodule update
+git submodule update --init
+# git submodule update --recursive if you want to build dart-raylib
 ```
 
 ## Running the Project
@@ -29,7 +29,7 @@ git submodule update
 cd flrl_v1
 flutter run
 ```
-I haven't had any issues running this on different machines, but if you have any problems please open up a github issue and I can take a look.
+I haven't had any issues running this on multiple platforms (Windows and Linux), but if you have any problems please open up a github issue and I can take a look.
 
 ## Credits
 Jochum van der Ploeg - [dart-raylib bindings](https://gitlab.com/wolfenrain/dart-raylib)
@@ -40,5 +40,5 @@ Levi Lesches - [typed_isolate](https://github.com/Levi-Lesches/typed_isolate)
 
 I might be updating the dart-raylib bindings to raylib 5.0 if I have time this summer, it has a couple of quality of life features and api changes that are worth the upgrade.
 
-Raylib doesn't support quads out of the box, so I may also be updating the [assimp](https://github.com/jpnurmi/assimp.dart) bindings, but that looks like significantly more work since ill be going from c++ -> dart.
+Raylib doesn't support quads out of the box, so I may also be updating the [assimp](https://github.com/jpnurmi/assimp.dart) bindings, but that looks like significantly more work since ill be going from c++ to dart.
 
