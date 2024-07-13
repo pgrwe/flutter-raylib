@@ -16,6 +16,14 @@ For the purpose of visualizing a robotic arm in 3D alongside our current dashboa
 Incorporating the creation of a raylib window directly a flutter program means we don't have to have a separate executable somewhere on disk to run with dart's process library
 
 In practice/during the semester - we will likely instead include an executable that the flutter program can run and communicate with through sockets or files, but this is interesting, so we may aswell try it. 
+## Cloning the Repository
+```bash
+git clone https://github.com/payl-ampa/flutter-raylib
+cd flutter-raylib
+git submodule init
+git submodule update
+```
+
 ## Running the Project
 ```bash
 cd flrl_v1
