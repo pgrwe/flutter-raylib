@@ -38,7 +38,7 @@ class RaylibController extends IsolateParent<RaylibCommand, IsolatePayload>{
   Color _color = Color.red;
   bool rlCanCreateContext = true;
 
-  RaylibIsolate rlIsolate = new RaylibIsolate(id: "rlIsolate");
+  RaylibIsolate rlIsolate = RaylibIsolate(id: "rlIsolate");
 
   @override
   Future<void> init() async {
@@ -47,12 +47,9 @@ class RaylibController extends IsolateParent<RaylibCommand, IsolatePayload>{
 
   @override
   void onData(IsolatePayload data, Object id) async{
-    // This stops printing after the 2nd window is created, my guess is that the child isolate isn't able to communicate with the parent isolate after disposial
-    // It's uncommented for now as it floods the console
     // print("Data received from isolate: $data");
     if (data.rlClearIsolates == true){
-      await super.dispose();
-      super.init();
+      super.cleanup();
       rlCanCreateContext = true;
     }
   }  
@@ -67,10 +64,11 @@ class RaylibController extends IsolateParent<RaylibCommand, IsolatePayload>{
 
   void createRaylibContext() async{
     if (rlCanCreateContext){
-      rlIsolate = new RaylibIsolate(id: "rlIsolate");
+      rlIsolate = RaylibIsolate(id: "rlIsolate");
       await spawn(rlIsolate); 
       rlCanCreateContext = false;
     } else {
+      // send some feedback to the user
       print("Window is already open");
     }
   }
