@@ -1,0 +1,52 @@
+name: raylib
+description: raylib is a simple and easy-to-use library to enjoy videogames programming.
+version: 0.3.0
+homepage: https://gitlab.com/wolfenrain/dart-raylib
+
+environment:
+  sdk: '>=2.14.0 <3.0.0'
+
+dependencies:
+  collection: ^1.15.0
+  ffi: ^1.1.2
+
+dev_dependencies:
+  ffigen: ^4.1.2
+  test: ^1.16.0
+  very_good_analysis: ^2.4.0
+
+ffigen:
+  name: Raylib
+  description: Bindings to Raylib
+  output: lib/src/generated_bindings.dart
+  llvm-path:
+    - /usr/lib/llvm-12
+  comments:
+    style: any
+    length: full
+  headers:
+    entry-points:
+      - vendor/raylib/src/raylib.h
+  enums:
+    member-rename:
+      '(.*)': 
+          'KEY_(.*)': '$1'
+          'GESTURE_(.*)': '$1'
+          'MOUSE_BUTTON_(.*)': '$1'
+          'CAMERA_(.*)': '$1'
+          'BLEND_(.*)': '$1'
+          'GAMEPAD_AXIS_(.*)': '$1'
+          'GAMEPAD_BUTTON_(.*)': '$1'
+          'FLAG_(.*)': '$1'
+          'MOUSE_CURSOR_(.*)': '$1'
+          'MATERIAL_MAP_(.*)': '$1'
+          'SHADER_LOC_(.*)': '$1'
+          'SHADER_UNIFORM_(.*)': '$1'
+          'SHADER_ATTRIB_(.*)': '$1'
+          'PIXELFORMAT_(.*)': '$1'
+          'TEXTURE_FILTER_(.*)': '$1'
+          'TEXTURE_WRAP_(.*)': '$1'
+          'CUBEMAP_LAYOUT_(.*)': '$1'
+          'FONT_(.*)': '$1'
+          'NPATCH_(.*)': '$1'
+          'LOG_(.*)': '$1'
