@@ -1,3 +1,0 @@
-dartdoc:
-  nodoc:
-    - lib/src/generated_bindings.dart
