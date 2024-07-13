@@ -1,5 +1,5 @@
 # Flutter-Raylib
-Proof of concept for creating a [raylib](https://www.raylib.com/) context alongside a flutter application. Currently very broken. 
+Simple proof of concept for creating a [raylib](https://www.raylib.com/) context alongside a flutter application. Currently very broken. 
 ## Bugs
 Isolates don't seem to be disposing properly. Evertything works as intended on creation of the 1st raylib context, after the creation of the 2nd raylib window things start to go wrong.
 - `Invalid argument(s): No child isolate found with id=rlIsolate` - Child isolate's cube no longer changes color
@@ -13,7 +13,7 @@ The child isolate's main game loop has `await Future.delayed(const Duration(mill
 ## Why?
 For the purpose of visualizing a robotic arm in 3D alongside our current dashboard (Binghamton University Rover Team). Similar to [ros2/rvis](https://github.com/ros2/rviz). Raylib is cross platform and has a simple API, there were also resources already in place to keep everything in dart (shoutout Jochum van der Ploeg).
 
-Incorporating the creation of a raylib window directly a flutter program means we don't have to have a separate executable somewhere on disk to run with dart's process library
+Incorporating the creation of a raylib window directly a flutter program means we don't have to have a separate executable somewhere on disk to run with dart's process library.
 
 In practice/during the semester - we will likely instead include an executable that the flutter program can run and communicate with through sockets or files, but this is interesting, so we may aswell try it. 
 ## Cloning the Repository
@@ -21,7 +21,7 @@ In practice/during the semester - we will likely instead include an executable t
 git clone https://github.com/payl-ampa/flutter-raylib
 cd flutter-raylib
 git submodule update --init
-# git submodule update --recursive if you want to build dart-raylib
+# git submodule update --init --recursive if you want to raylib's C code in dart-raylib
 ```
 
 ## Running the Project
